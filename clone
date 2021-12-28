@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+# Clone repositories managed by this project
+set -e
+projectRoot=$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pwd)
+
+(
+  cd "${projectRoot}"
+
+  printf "\nCloning repositories\n"
+
+  test -d aircraft-tracking\
+    && >&2 echo "The 'aircraft-tracking' repository already exists. Skipping." \
+    || git clone https://github.com/johnwatson484/aircraft-tracking.git  
+  test -d aircraft-cache\
+    && >&2 echo "The 'aircraft-cache' repository already exists. Skipping." \
+    || git clone https://github.com/johnwatson484/aircraft-cache.git
+  test -d aircraft-web\
+    && >&2 echo "The 'aircraft-web' repository already exists. Skipping." \
+    || git clone https://github.com/johnwatson484/aircraft-web.git
+)

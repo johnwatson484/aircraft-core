@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+if [ -z "$(docker network ls --filter name=^ffc-sfi$ --format={{.Name}})" ]; then
+  echo "Creating aircraft Docker network"
+  docker network create aircraft
+fi
+set -e
+projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pwd)"
+
+show_help() {
+  echo "
+    Usage: scripts/test [OPTION...]
+    Build and run services.
+
+    Options:
+      -h, --help       display this help text
+    "
+}
+
+while :; do
+  case $1 in
+    -h|--help)   # Call a "show_help" function to display a synopsis, then exit.
+      show_help
+      exit
+      ;;
+    *)
+      break
+  esac
+
+  shift
+done
+
+cd "${projectRoot}"
+
+./aircraft-tracking/scripts/start -d && \
+  ./aircraft-cache/scripts/start -d && \
+  ./aircraft-web/scripts/start -d
