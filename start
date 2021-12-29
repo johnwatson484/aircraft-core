@@ -33,4 +33,4 @@ cd "${projectRoot}"
 
 ./aircraft-tracking/scripts/start -d && \
   ./aircraft-cache/scripts/start -d  --scale aircraft-message=0 && \
-  ./aircraft-web/scripts/start -d
+  ./aircraft-web/scripts/start -d --scale aircraft-redis=0
