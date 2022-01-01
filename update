@@ -37,3 +37,7 @@ cd "${projectRoot}"
 cd ./aircraft-web && \
   git checkout main && \
   git pull
+cd "${projectRoot}"
+cd ./aircraft-database && \
+  git checkout main && \
+  git pull

@@ -34,3 +34,6 @@ cd ./aircraft-cache && \
 cd "${projectRoot}"
 cd ./aircraft-web && \
   git pull
+cd "${projectRoot}"
+cd ./aircraft-database && \
+  git pull

@@ -18,4 +18,7 @@ projectRoot=$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pw
   test -d aircraft-web\
     && >&2 echo "The 'aircraft-web' repository already exists. Skipping." \
     || git clone https://github.com/johnwatson484/aircraft-web.git
+  test -d aircraft-database\
+    && >&2 echo "The 'aircraft-database' repository already exists. Skipping." \
+    || git clone https://github.com/johnwatson484/aircraft-database.git
 )

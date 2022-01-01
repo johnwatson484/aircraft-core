@@ -34,3 +34,6 @@ cd ./aircraft-cache && \
 cd "${projectRoot}"
 cd ./aircraft-web && \
   docker-compose down
+cd "${projectRoot}"
+cd ./aircraft-database && \
+  docker-compose down

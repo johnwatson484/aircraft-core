@@ -28,4 +28,5 @@ done
 cd "${projectRoot}"
 code ./aircraft-tracking && \
   code ./aircraft-cache && \
-  code ./aircraft-web
+  code ./aircraft-web && \
+  code ./aircraft-database
